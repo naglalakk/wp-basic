@@ -1,0 +1,12 @@
+# BEGIN Wordpress
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+RewriteRule ^wp-content/uploads/([0-9]+)/([0-9]+)/(.+?)$ /wp-content/themes/twentytwenty/screenshot.png [R=301,L,NC]
+</IfModule>
+# END WordPress
+
