@@ -3,7 +3,7 @@ services:
    db:
      image: mysql
      volumes:
-       - wp_loh_db_data:/var/lib/mysql
+       - wp_db_data:/var/lib/mysql
      restart: always
      environment:
        MYSQL_ROOT_PASSWORD: somewordpress
@@ -16,7 +16,7 @@ services:
        - db
      image: wordpress:latest
      ports:
-       - "8021:80"
+       - "8080:80"
      restart: always
      volumes:
        - ./uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
@@ -26,4 +26,4 @@ services:
        WORDPRESS_DB_USER: wordpress
        WORDPRESS_DB_PASSWORD: wordpress
 volumes:
-    wp_loh_db_data:
+    wp_db_data:
