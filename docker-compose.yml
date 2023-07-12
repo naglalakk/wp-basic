@@ -16,12 +16,13 @@ services:
        - db
      image: wordpress:latest
      ports:
-       - "8081:80"
+       - "8000:80"
      restart: always
      volumes:
        - ./uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
        - ./wp-content:/var/www/html/wp-content
        - ./.htaccess:/var/www/html/.htaccess
+       - ./000-default.conf:/etc/apache2/sites-available/000-default.conf
        - ./apache2.conf:/etc/apache2/apache2.conf
      environment:
        WORDPRESS_DB_HOST: db:3306
